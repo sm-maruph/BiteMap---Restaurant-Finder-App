@@ -1,0 +1,242 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+
+
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+body{
+    font-family: 'Poppins', sans-serif;
+}
+
+/* container */
+.two-columns {
+    display:flex;
+    margin-top: 5%;
+}
+
+/* columns */
+.two-columns > * {
+
+    width:50%;
+    padding:1rem;
+}
+.two-columns{
+    min-height: 70vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("banner-img.jpg") center/cover no-repeat;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    padding-bottom: 20px;
+    height: 70vh;
+}
+
+.card-img{
+    background: url("card-img.jpg") center/cover no-repeat;
+}
+.two-columns h2{
+    padding-bottom: 40px;
+    margin-bottom: 20px;
+}
+.inner{
+    background: transparent;
+    height: 330px;
+    float: left;
+    width: 50%;
+    margin-right: 5px;
+    margin-top: -10%;
+}
+.inner h3{
+    text-align: center;
+    color: orangered;
+    padding: 25px 0 10px 0;
+    font-size: 40px;
+    font-weight: 500;
+}
+.inner h3{
+    text-align: center;
+    color: orangered;
+    padding: 25px 0 10px 0;
+    font-size: 26px;
+    font-weight: 500;
+}
+.form-row input{
+    border-radius: 12px;
+    max-height: 30px;
+    background-color: black;
+    border: 1px solid white;
+}
+.form-row select{
+    border-radius: 12px;
+}
+.button {
+    margin-left: 40%;
+    margin-top: 2%;
+    border:2px solid rgb(255, 255, 255);
+    padding: 10px 30px;
+    background-color: orangered;
+    border-radius: 12px;
+    cursor: pointer;
+    color: #eee;
+}
+.button:hover{
+    background-color: transparent;
+    color: rgb(255, 255, 255);
+    border:2px solid orangered;
+    font-weight: 700;
+
+}
+
+.form-row{
+    display: flex;
+    width: 90%;
+    margin: 0 auto;
+}
+form select, form input{
+    display: block;
+    width: 100%;
+    margin: 15px 12px;
+    padding: 5px;
+    font-size: 15px;
+    font-family: 'Poppins', sans-serif;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #eee;
+    font-weight: 300;
+}
+form input[type = text], form input[type = number], form input::placeholder, select{
+    color: #9a9a9a;
+}
+form input[type = submit]{
+    color: #fff;
+    background: #f2745f;
+    padding: 12px 0;
+    border-radius: 4px;
+    cursor: pointer;
+}
+form input[type = submit]:hover{
+    opacity: 0.9;
+}
+@media(max-width: 992px){
+    .card-container{
+        grid-template-columns: 100%;
+        width: 100vw;
+    }
+    .card-img{
+        height: 330px;
+    }
+}
+.welcome p{
+    font-size: 35px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+}
+.welcome p span{
+    color: orangered;
+}
+.inner h2{
+    color: orangered;
+    font-size: 25px;
+    margin: 0;
+    padding: 0;
+    padding-bottom: 10px;
+}
+.inner p{
+    font-size: 20px;
+    color: aqua;
+    padding-bottom: 5px;
+}
+
+
+.card-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 20px;
+    gap: 20px;
+    background-color: transparent;
+    background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url("../image/cardBack.jpeg");
+    
+  }
+.card-list .card-item {
+    background: transparent;
+    padding: 26px;
+    border-radius: 12px;
+    box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.9), 0 10px 40px 0 rgba(255, 255, 255, 0.9); 
+    list-style: none;
+    cursor: pointer;
+    text-decoration: none;
+    border: 4px solid transparent;
+    transition: border 0.5s ease;
+}
+.card-list .card-item:hover {
+    border: 3px solid #ff3d00;
+}
+.card-list .card-item img {
+    width: 100%;
+    aspect-ratio: 16/9;
+    border-radius: 8px;
+    object-fit: cover;
+}
+.card-list span {
+    display: inline-block;
+    background: #F7DFF5;
+    margin-top: 32px;
+    padding: 8px 15px;
+    font-size: 0.75rem;
+    border-radius: 50px;
+    font-weight: 600;
+}
+.card-list .cDetails{
+background-color: #ffffff; 
+    color: #000000;
+}
+.card-list .rNum {
+    background-color: rgb(17, 227, 192); 
+    color: #000000;
+    margin-right:20px ;
+}   
+.card-list .rArea {
+    background-color: #c4df29;
+    color: #000000;
+    margin-right: 30px;
+}
+.card-list .rName {
+    background-color: #ff3d00; 
+    color: #ffffff;
+}
+.card-list .cStatus{
+    background-color: green; 
+    color: #ffffff;
+}
+.card-item h3 {
+    color: #000;
+    font-size: 1.438rem;
+    margin-top: 28px;
+    font-weight: 600;
+}
+.card-item .arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: rotate(-35deg);
+    height: 40px;
+    width: 40px;
+    color: #000;
+    border: 1px solid #000;
+    border-radius: 50%;
+    margin-top: 40px;
+    transition: 0.2s ease;
+}
+.card-list .card-item:hover .arrow  {
+    background: #000;
+    color: #fff; 
+}

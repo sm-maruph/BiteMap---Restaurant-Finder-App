@@ -1,0 +1,348 @@
+body{
+    background-color: #d6f8d6;
+}
+.content{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 100%;
+    max-width: 1000px;
+    transform: translate(-50%, -40%);
+    text-align: center;
+    color: rgb(255, 255, 255);
+}
+.content h1{
+    font-size: 57px;
+    font-weight: bolder bolder;
+    margin-bottom: 40px;
+    padding: 10px;
+    color: #ffffff;
+    box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.7), 0 6px 20px 0 rgba(0, 0, 0, 0.5); 
+    
+}
+.searchbar{
+    background: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    display: flex;
+}
+.searchbar input{
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 0 20px;
+    font-size: 18px;
+}
+.searchbar button{
+    background: #ff3d00;
+    font-size: 20px;
+    padding: 15px 40px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    color: #fff;
+
+}
+.searchbar button:hover{
+  background: rgb(134, 185, 148);
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+}
+
+.options{
+  width: 110px;
+  height: 30px;
+  font-size: 12px;
+  background-color: antiquewhite;
+  font-weight: bold;
+  color: #ff3d00;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+
+}
+.catagory{
+    width: 180px;
+    height: 30px;
+    background-color: rgba(255, 255, 255, 1);
+    margin: 0 10px;
+}
+
+
+.catagorylist{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+.column h3{
+    font-size: 20px;
+    margin-bottom: 1px;
+    text-align: left;
+  }
+  .column2 h3{
+    font-size: 20px;
+    margin-bottom: 1px;
+    text-align: left;
+  }
+  .column4 h3{
+    font-size: 20px;
+    margin-bottom: 1px;
+    text-align: left;
+  }
+
+
+
+
+
+
+
+
+
+
+
+  /* The dropdown container */
+  .dropdown {
+    float: left;
+    overflow: hidden;
+    width: 300px;
+    font-size: 20px;
+    background-color: #ff3d00;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /* Dropdown button */
+ .dropbtn {
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: rgb(0, 0, 0);
+    padding: 14px 16px;
+    background-color: inherit;
+    font: inherit; /* Important for vertical align on mobile phones */
+    margin: 0; /* Important for vertical align on mobile phones */
+  }
+  /* Add a red background color to navbar links on hover */
+  .navbar a:hover, .dropdown:hover .dropbtn {
+    background-color: rgb(221, 255, 0)(255, 140, 0);
+  }
+  /* Dropdown content (hidden by default) */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #ff3d00;
+    width: 1020px;
+    left: 0;
+    box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    align-items: center;
+    transition: opacity 0.3s ease-in-out;
+
+  }
+  .dropdown-content:hover {
+    display: block;
+    opacity: 1;
+}
+
+  /* Mega Menu header, if needed */
+  .dropdown-content .headerinner {
+    background: #ffffff;
+    padding: 10px;
+    color: rgb(0, 0, 0);
+    max-height: 40px;
+    font-size: 15px;
+    width: 1000px;
+  }
+  /* Show the dropdown menu on hover */
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  /* Create four equal columns that floats next to each other */
+  .column {
+    float: left;
+    width: 25%;
+    padding: 10px;
+    background-color: #050000;
+    height: 600px;
+    
+  }
+  .column2 {
+    float: left;
+    width: 25%;
+    padding: 10px;
+    background-color: #5a0000;
+    height: 600px;
+    
+  }
+  .button2{
+    background: #ff3d00;
+    font-size: 20px;
+    padding: 15px 40px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    color: #fff;
+
+}
+.button2:hover{
+  background: rgb(134, 185, 148);
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+}
+  .column4 {
+    float: left;
+    width: 25%;
+    padding: 10px;
+    background-color: #5a0000;
+    height: 600px;
+    
+  }
+  
+  .checkbox-item label{
+    position: inherit;
+    float: left;
+    margin: 0px 0px;
+    width: 200px;
+    font-size: 15px;
+  }
+  .checkbox-item input[type = checkbox]{
+    /* Double-sized Checkboxes */
+     transform: scale(2);
+      margin-right: 12px;
+      margin-top: 5px;
+      
+  }
+  
+
+  .card-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 20px;
+    gap: 20px;
+    background-color: transparent;
+    background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url("../image/cardBack.jpeg");
+    
+  }
+.card-list .card-item {
+    background: transparent;
+    padding: 26px;
+    border-radius: 12px;
+    box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.9), 0 10px 40px 0 rgba(255, 255, 255, 0.9); 
+    list-style: none;
+    cursor: pointer;
+    text-decoration: none;
+    border: 4px solid transparent;
+    transition: border 0.5s ease;
+}
+.card-list .card-item:hover {
+    border: 3px solid #ff3d00;
+}
+.card-list .card-item img {
+    width: 100%;
+    aspect-ratio: 16/9;
+    border-radius: 8px;
+    object-fit: cover;
+}
+.card-list span {
+    display: inline-block;
+    background: #F7DFF5;
+    margin-top: 32px;
+    padding: 8px 15px;
+    font-size: 0.75rem;
+    border-radius: 50px;
+    font-weight: 600;
+}
+.card-list .cDetails{
+background-color: #ffffff; 
+    color: #000000;
+}
+.card-list .rNum {
+    background-color: rgb(17, 227, 192); 
+    color: #000000;
+    margin-right:20px ;
+}   
+.card-list .rArea {
+    background-color: #c4df29;
+    color: #000000;
+    margin-right: 30px;
+}
+.card-list .rName {
+    background-color: #ff3d00; 
+    color: #ffffff;
+}
+.card-list .cStatus{
+    background-color: green; 
+    color: #ffffff;
+}
+.card-item h3 {
+    color: #000;
+    font-size: 1.438rem;
+    margin-top: 28px;
+    font-weight: 600;
+}
+.card-item .arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: rotate(-35deg);
+    height: 40px;
+    width: 40px;
+    color: #000;
+    border: 1px solid #000;
+    border-radius: 50%;
+    margin-top: 40px;
+    transition: 0.2s ease;
+}
+.card-list .card-item:hover .arrow  {
+    background: #000;
+    color: #fff; 
+}
+@media (max-width: 1200px) {
+    .card-list .card-item {
+        padding: 15px;
+    }
+}
+@media screen and (max-width: 980px) {
+    .card-list {
+        margin: 0 auto;
+
+    }
+}
+.new-section h3{
+  padding-top: 30px;
+    color: #ff3d00;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-icon::before {
+    content: "\f061"; /* Unicode for the arrow-right icon */
+        font-family: 'Font Awesome 5 Free';
+        margin-right: 5px; /* Adjust the margin as needed */
+        transition: margin-right 0.3s ease; /* Add a transition effect to the margin-right property */
+}
+.card-icon:hover::before {
+    margin-right: 10px; /* Adjust the margin on hover */
+}
+iframe {
+  width: 100%;
+  height: 400px; /* Adjust height as needed */
+}

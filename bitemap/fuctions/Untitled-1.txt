@@ -1,0 +1,161 @@
+<?php
+session_start();
+include("../templete/db_connect.php");
+$errors = array('email' => '');
+// Ensure that the form is submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Retrieve values from the form
+    $restaurantName = mysqli_real_escape_string($conn, $_POST['restaurant_name']);
+    $email = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
+    $email = filter_var($email, FILTER_SANITIZE_EMAIL);
+    $password = mysqli_real_escape_string($conn, $_POST['password']);
+
+    // Hash the password
+    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
+    $cityCorporation = mysqli_real_escape_string($conn, $_POST['cityCorporation']);
+    $policeStation = mysqli_real_escape_string($conn, $_POST['policeStation']);
+    $detailsAddress = mysqli_real_escape_string($conn, $_POST['details_address']);
+    $contactNumber1 = mysqli_real_escape_string($conn, $_POST['contact_number1']);
+    $contactNumber2 = mysqli_real_escape_string($conn, $_POST['contact_number2']);
+    $signupTime = date('y-m-d H:i:s');
+    $restaurant_picture = $_FILES['restaurant_img'];
+
+    // Check for duplicate restaurant name
+    $checkRestaurantNameQuery = $conn->prepare("SELECT * FROM `restaurant` WHERE `restaurant_name` = ?");
+    $checkRestaurantNameQuery->bind_param("s", $restaurantName);
+    $checkRestaurantNameQuery->execute();
+    $checkRestaurantNameResult = $checkRestaurantNameQuery->get_result();
+
+    // Check for duplicate email
+    $checkEmailQuery = $conn->prepare("SELECT * FROM `restaurant` WHERE `email` = ?");
+    $checkEmailQuery->bind_param("s", $email);
+    $checkEmailQuery->execute();
+    $checkEmailResult = $checkEmailQuery->get_result();
+    if (mysqli_num_rows($checkRestaurantNameResult) > 0 && mysqli_num_rows($checkEmailResult) > 0) {
+        $errors['email'] = 'Restaurant Name and Email already exist.';
+
+        $_SESSION['input_values'] = [
+            'restaurant_name' => $_POST['restaurant_name'],
+            'email' => $_POST['email'],
+            'password' => $_POST['password'],
+            'restaurant_img' => '$restaurant_picture',
+            'cityCorporation' => $_POST['cityCorporation'],
+            'policeStation' => $_POST['policeStation'],
+            'details_address' => $_POST['details_address'],
+            'contact_number1' => $_POST['contact_number1'],
+            'contact_number2' => $_POST['contact_number2']
+            // Add other form fields as needed
+        ];
+    } elseif (mysqli_num_rows($checkRestaurantNameResult) > 0) {
+        $errors['email'] = 'Restaurant name already exists.'; 
+        
+        $_SESSION['input_values'] = [
+            'restaurant_name' => $_POST['restaurant_name'],
+            'email' => $_POST['email'],
+            'password' => $_POST['password'],
+            'restaurant_img' => '$restaurant_picture',
+            'cityCorporation' => $_POST['cityCorporation'],
+            'policeStation' => $_POST['policeStation'],
+            'details_address' => $_POST['details_address'],
+            'contact_number1' => $_POST['contact_number1'],
+            'contact_number2' => $_POST['contact_number2']
+            // Add other form fields as needed
+        ];
+    } elseif (mysqli_num_rows($checkEmailResult) > 0) {
+        $errors['email'] = 'Email already exists.';   
+        $_SESSION['input_values'] = [
+            'restaurant_name' => $_POST['restaurant_name'],
+            'email' => $_POST['email'],
+            'password' => $_POST['password'],
+            'restaurant_img' => $_FILE['restaurant_img'],
+            'cityCorporation' => $_POST['cityCorporation'],
+            'policeStation' => $_POST['policeStation'],
+            'details_address' => $_POST['details_address'],
+            'contact_number1' => $_POST['contact_number1'],
+            'contact_number2' => $_POST['contact_number2']
+            // Add other form fields as needed
+        ];
+    }else{
+        // Handle image upload
+    $uploadDir = '../image/restaurant/profile'; // Specify the upload 
+    if (!file_exists($uploadDir)) {
+        mkdir($uploadDir, 0755, true);  // Create the directory if it doesn't exist
+    }
+    $uploadFile = $uploadDir . basename($_FILES['restaurant_img']['name']);
+
+    if (file_exists($uploadFile)) {
+        $message['error'] = 'File already Exists';
+    }
+
+    if (move_uploaded_file($_FILES['restaurant_img']['tmp_name'], $uploadFile)) {
+        echo "Image uploaded successfully.";
+        $result = substr($uploadFile, 3);
+        $result2 = true; // Update $result2 on successful image upload
+    } else {
+        echo "Error uploading image.";
+        mysqli_close($conn);
+        exit();
+    }
+
+    // Prepare the SQL statement for insertion
+    $stmt = $conn->prepare("INSERT INTO `restaurant`(`restaurant_name`,  `email`, `password`, `r_image`, `cityCorporation`, `policeStaion`, `contactNumber1`, `contactNumber2`, `detailsAddress`, `signup_time`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+
+    // Check for successful preparation
+    if ($stmt === false) {
+        die("Error in SQL preparation: " . $conn->error);
+      }
+    
+
+     // Execute the statement
+     if ($stmt->execute()) {
+         $restaurant_id = mysqli_insert_id($conn);
+         echo $restaurant_id;
+ 
+         // Insert features
+         for ($i = 1; $i <= 63; $i++) {
+             $checkbox_name = "c" . $i;
+ 
+             if (isset($_POST[$checkbox_name])) {
+                 $feature_value = $i;
+                 $sql2 = "INSERT INTO `restaurant_features`(`restaurant_id`, `feature_id`) VALUES ('$restaurant_id','$feature_value')";
+                 $result2 = mysqli_query($conn, $sql2);
+             }
+         }
+         if ($stmt->execute() && $result2) {
+            // Success
+            unset($_SESSION['input_values']);
+            unset($_SESSION['signup_errors']);
+        
+            // Set a success message
+            $_SESSION['registration_success'] = 'Registration Successful';
+            
+            // Commenting out the redirection
+            // header("Location: ../signuprestaurant.php");
+        } elseif ($stmt->execute()) {
+            $errors['registration_success'] = 'Registration Successful without keyword';
+        } else {
+            // Display errors without redirection
+            $errors['registration_success'] = 'Error during registration: ' . $stmt->error . ' ' . $result2->error;
+        }
+        
+
+        // Close the statement
+        $stmt->close();
+        $result2->close();
+        }
+    }
+}else {
+        die("Error checking email existence: " . $$checkEmailResult->error);
+    }
+    // Set errors in the session
+$_SESSION['signup_errors'] = $errors;
+
+// Close the check statement
+$checkEmailResult->close();
+
+// Close the database connection
+$conn->close();
+?>
+
+    

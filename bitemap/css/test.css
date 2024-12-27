@@ -1,0 +1,178 @@
+.dropdown-container {
+  position: relative;
+  display: inline-block;
+  margin-right: 20px;
+}
+.dropdown-button {
+  padding: 10px;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  background-color: #fff;
+}
+
+/* Style for the dropdown content */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  background-color: #f9f9f9;
+  padding: 10px;
+  z-index: 1;
+}
+
+/* Style for the checkbox labels */
+.checkbox-label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+/* Style for the checkboxes */
+.checkbox-input {
+  margin-right: 8px;
+}
+
+/* Show the dropdown content when the dropdown button is clicked */
+.dropdown-container.open .dropdown-content {
+  display: block;
+}
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-bottom: 10PX;
+}
+.checkbox-item input{
+  box-sizing: 15px;
+}
+/* Style for each checkbox */
+.checkbox-item {
+  margin-bottom: 5px;
+  cursor: pointer;
+  margin-left: 5px;
+  font-size: 15px;
+  color: rgb(255, 255, 255);
+}
+
+
+
+
+
+
+
+
+/* The dropdown container */
+.dropdown {
+  float: left;
+  overflow: hidden;
+  background-color: #ff3d00;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Dropdown button */
+.dropbtn {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: rgb(0, 0, 0);
+  padding: 14px 16px;
+  background-color: inherit;
+  font: inherit; /* Important for vertical align on mobile phones */
+  margin: 0; /* Important for vertical align on mobile phones */
+}
+
+/* Add a red background color to navbar links on hover */
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: rgb(221, 255, 0)(255, 140, 0);
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #ff3d00;
+  width: 1020px;
+  left: 0;
+  box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  align-items: center;
+
+}
+
+/* Mega Menu header, if needed */
+.dropdown-content .headerinner {
+  background: #ffffff;
+  padding: 10px;
+  color: rgb(0, 0, 0);
+  max-height: 40px;
+  font-size: 15px;
+  width: 1000px;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 25%;
+  padding: 10px;
+  background-color: #050000;
+  height: 600px;
+  
+}
+.column2 {
+  float: left;
+  width: 25%;
+  padding: 10px;
+  background-color: #5a0000;
+  height: 600px;
+  
+}
+.column4 {
+  float: left;
+  width: 25%;
+  padding: 10px;
+  background-color: #5a0000;
+  height: 600px;
+  
+}
+
+/* Style links inside the columns */
+.column a {
+  float: none;
+  color: rgb(255, 255, 255);
+  padding: 2px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+/* Add a background color on hover */
+.column a:hover {
+  background-color: #1f0c0c;
+}
+.column h3{
+  font-size: 20px;
+  margin-bottom: 4px;
+  text-align: left;
+}
+.column2 h3{
+  font-size: 20px;
+  margin-bottom: 4px;
+  text-align: left;
+}
+.column4 h3{
+  font-size: 20px;
+  margin-bottom: 4px;
+  text-align: left;
+}
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}

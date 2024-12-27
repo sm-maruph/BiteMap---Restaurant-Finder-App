@@ -1,0 +1,176 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "poppins",sans-serif;
+    box-sizing: border-box;
+}
+.header{
+    height: 100vh;
+    width: 100%;
+    padding: 0 8%;
+    position: relative;
+    margin-bottom: 6%;
+}
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 1%;
+}
+
+.logt{
+    text-align: center;
+    color: white;
+    padding-top: 0%;
+    font-size: 30px;
+}
+.logt span{
+    color: #ff3d00;
+    font-size: 40px;
+    
+}
+.nav-links{
+    padding: 28px 0;
+}
+.nav-links li{
+    display: inline-block;
+    margin: 0 15px;
+}
+.nav-links li a{
+    font-size: 17px;
+}
+.navbutton{
+    background: #ff3d00;
+    color: #fff;
+    padding: 6px 10px;
+    width: 100px;
+    border-radius: 12px;
+    cursor: pointer;
+    margin-left: 5px;
+}
+.navbutton:hover{
+    background: rgb(134, 185, 148);
+    
+}
+.navbutton a{
+    text-decoration: none;
+    color: white;
+    padding: 5px 0;
+    position: relative;
+}
+.navbutton a:hover{
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    background-color: none;
+}
+.nav-links li a{
+    text-decoration: none;
+    color: white;
+    padding: 5px 0;
+    position: relative;
+}
+.nav-links li a:hover{
+    color: #ffee10;
+    background-color: none;
+    box-shadow: 0 0 10px #ffee10;
+    text-shadow: 0 0 5px #ffee10;
+}
+.signupbutton{
+    background: #ff3d00;
+    color: #fff;
+    padding: 10px 30px;
+    border-radius: 3px;
+    cursor: pointer;
+    border-color: #10ff40;
+}
+
+.content{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 100%;
+    max-width: 50%;
+    transform: translate(-50%, -40%);
+    text-align: center;
+    color: white;
+}
+.background-video{
+    position: absolute; 
+    top: 0; left:0;
+    width: 100%; height: 100%; 
+    z-index: -1;
+    filter: brightness(40%);
+}
+@media (min-aspect-ratio:16/9){
+    .background-video{
+        width: 100;
+        height: auto;
+    }
+}
+@media (max-aspect-ratio:16/9){
+    .background-video{
+        width: auto;
+        height: 100%;
+    }
+}
+
+
+
+
+.dropdown-container {
+    position: relative;
+    display: inline-block;
+    margin-right: 20px;
+  }
+.dropdown-button {
+    padding: 10px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    background-color: #fff;
+  }
+
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    background-color: #f9f9f9;
+    padding: 10px;
+    z-index: 1;
+  }
+
+  /* Style for the checkbox labels */
+  .checkbox-label {
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  /* Style for the checkboxes */
+  .checkbox-input {
+    margin-right: 8px;
+  }
+
+  /* Show the dropdown content when the dropdown button is clicked */
+  .dropdown-container.open .dropdown-content {
+    display: block;
+  }
+  .checkbox-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 10PX;
+  }
+.checkbox-item input{
+    box-sizing: 15px;
+}
+  /* Style for each checkbox */
+  .checkbox-item {
+    margin-bottom: 5px;
+    cursor: pointer;
+    margin-left: 5px;
+    font-size: 15px;
+    color: rgb(255, 255, 255);
+  }
+
+

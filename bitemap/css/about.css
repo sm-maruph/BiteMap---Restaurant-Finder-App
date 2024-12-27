@@ -1,0 +1,35 @@
+.container{
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    padding-left: 2%;
+    padding-right: 2%;
+    box-sizing: border-box;
+    background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url("../image/aboutus.jpg");
+
+}
+.row{
+    display: flex;
+    height: 88%;
+    align-items: center;
+
+}
+.col{
+    flex-basis: 100%;
+    width: 100%;
+}
+h1{
+    margin-left: 60%;
+    margin-bottom: 15px;
+    color: rgb(255, 0, 68);
+
+
+}
+.intro{
+    margin-left: 50%;
+    color: rgb(255, 255, 255);
+    font-size: 17px;
+    line-height: 20px;
+      ;
+}
